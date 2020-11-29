@@ -1,0 +1,6 @@
+export { default as Layout } from "./layout"
+export { default as Nav } from "./nav"
+export { default as Landing } from "./landing"
+export { default as Projects } from "./projects"
+export { default as Experience } from "./experience"
+export { default as Side } from "./side"
