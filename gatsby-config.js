@@ -3,6 +3,8 @@ module.exports = {
     title: "Muradil Udun",
   },
   plugins: [
+    `gatsby-transformer-remark`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -10,6 +12,5 @@ module.exports = {
         path: `${__dirname}/content/`,
       },
     },
-    `gatsby-transformer-remark`,
   ],
 }

@@ -6,6 +6,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       alias: {
         "@config": path.resolve(__dirname, "src/config"),
         "@components": path.resolve(__dirname, "src/components"),
+        "@icons": path.resolve(__dirname, "src/components/icons"),
       },
     },
   })
