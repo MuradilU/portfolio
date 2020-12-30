@@ -27,7 +27,7 @@ const Experience = () => {
   const jobs = data.allMarkdownRemark.edges
 
   return (
-    <div>
+    <section id="experience">
       {jobs.map((job, index) => (
         <div key={index}>
           <h1>{job.node.frontmatter.title}</h1>
@@ -37,7 +37,7 @@ const Experience = () => {
           <div dangerouslySetInnerHTML={{ __html: job.node.html }} />
         </div>
       ))}
-    </div>
+    </section>
   )
 }
 

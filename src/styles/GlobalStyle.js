@@ -21,7 +21,11 @@ const GlobalStyle = createGlobalStyle`
     html {
         scroll-behavior: smooth;
         font-family: Arial, Helvetica, sans-serif;
+    }
+    body {
+        margin: 0;
         background: var(--bg-color);
+        color: var(--font-color);
     }
 `
 

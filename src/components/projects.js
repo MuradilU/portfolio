@@ -27,7 +27,7 @@ const Projects = () => {
   const projects = data.allMarkdownRemark.edges
 
   return (
-    <div>
+    <section id="projects">
       {projects.map((project, index) => (
         <div key={index}>
           <h1>{project.node.frontmatter.title}</h1>
@@ -37,7 +37,7 @@ const Projects = () => {
           <div dangerouslySetInnerHTML={{ __html: project.node.html }} />
         </div>
       ))}
-    </div>
+    </section>
   )
 }
 
