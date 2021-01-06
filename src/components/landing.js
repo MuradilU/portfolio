@@ -75,7 +75,11 @@ const Landing = () => {
       <em>{last}</em>
     </h1>
   )
-  const resumeButton = <Button />
+  const resumeButton = (
+    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+      <Button />
+    </a>
+  )
 
   const landingElements = [intro, fullName, resumeButton]
 
