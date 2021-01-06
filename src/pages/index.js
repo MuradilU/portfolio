@@ -1,12 +1,20 @@
 import React from "react"
-import { Layout, Landing, Experience, Projects } from "@components"
+import styled from "styled-components"
+import { Layout, Landing, About, Experience, Projects } from "@components"
+
+const StyledMainContainer = styled.main`
+  padding: 0 150px;
+`
 
 export default function Home({ location }) {
   return (
     <Layout>
-      <Landing />
-      <Experience />
-      <Projects />
+      <StyledMainContainer>
+        <Landing />
+        <About />
+        <Experience />
+        <Projects />
+      </StyledMainContainer>
     </Layout>
   )
 }

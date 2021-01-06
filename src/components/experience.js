@@ -1,5 +1,90 @@
 import React from "react"
+import styled from "styled-components"
+import ScrollReveal from "scrollreveal"
+import { CSSTransition } from "react-transition-group"
 import { useStaticQuery, graphql } from "gatsby"
+import { srConfig } from "@config"
+
+const StyledExperienceSection = styled.section`
+  max-width: 800px;
+
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    column-gap: 30px;
+    margin-top: 50px;
+  }
+`
+
+const StyledTabList = styled.ul`
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  .marker {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: var(--tab-height);
+    background-color: var(--secondary-color);
+    transition: all 300ms ease-in-out;
+    transform: translateY(
+      calc(${props => props.currentTab} * var(--tab-height))
+    );
+  }
+`
+
+const StyledTabListItem = styled.li`
+  button {
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    height: var(--tab-height);
+    text-align: center;
+    border: none;
+    border-right: 2px solid var(--lightgrey);
+    transition: all 300ms ease-in-out;
+
+    span {
+      color: var(
+        ${props => (props.isCurrentTab ? "--primary-color" : "--font-color")}
+      );
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    &:hover {
+      background-color: var(--hover-color);
+
+      span {
+        color: var(--primary-color);
+      }
+    }
+  }
+`
+
+const StyledTabContent = styled.div`
+  .company {
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 10px;
+    border-right: 2px solid var(--font-color);
+  }
+
+  .title {
+    font-size: 18px;
+    color: var(--primary-color);
+    padding-left: 10px;
+  }
+
+  p {
+    font-size: 15px;
+    color: darkgrey;
+  }
+`
 
 const Experience = () => {
   const data = useStaticQuery(
@@ -7,6 +92,7 @@ const Experience = () => {
       {
         allMarkdownRemark(
           filter: { fileAbsolutePath: { regex: "/experience/" } }
+          sort: { fields: [frontmatter___date], order: DESC }
         ) {
           edges {
             node {
@@ -24,20 +110,66 @@ const Experience = () => {
     `
   )
 
+  const [currentTabId, setCurrentTabId] = React.useState(0)
+
   const jobs = data.allMarkdownRemark.edges
 
+  const revealContainer = React.useRef(null)
+
+  React.useEffect(() => {
+    ScrollReveal().reveal(revealContainer.current, srConfig)
+  }, [])
+
   return (
-    <section id="experience">
-      {jobs.map((job, index) => (
-        <div key={index}>
-          <h1>{job.node.frontmatter.title}</h1>
-          <h2>{job.node.frontmatter.company}</h2>
-          <h3>{job.node.frontmatter.range}</h3>
-          <h3>{job.node.frontmatter.location}</h3>
-          <div dangerouslySetInnerHTML={{ __html: job.node.html }} />
-        </div>
-      ))}
-    </section>
+    <StyledExperienceSection id="experience" ref={revealContainer}>
+      <h2 className="section-header">Work Experience</h2>
+      <div className="content">
+        <StyledTabList currentTab={currentTabId}>
+          {jobs.map((job, index) => (
+            <StyledTabListItem
+              key={index}
+              isCurrentTab={currentTabId === index}
+            >
+              <button
+                onClick={e => {
+                  setCurrentTabId(index)
+                }}
+                id={`tab-${index}`}
+                role="tab"
+                aria-selected={currentTabId === index}
+                aria-controls={`tab-content-${index}`}
+              >
+                <span>{job.node.frontmatter.company.split(" ")[0]}</span>
+              </button>
+            </StyledTabListItem>
+          ))}
+          <li className="marker"></li>
+        </StyledTabList>
+        <StyledTabContent>
+          {jobs.map((job, index) => (
+            <CSSTransition
+              key={index}
+              in={currentTabId === index}
+              classNames="fade-in"
+              timeout={300}
+            >
+              <div
+                hidden={currentTabId !== index}
+                id={`tab-content-${index}`}
+                role="tab-content"
+                aria-hidden={currentTabId !== index}
+                aria-labelledby={`tab-content-${index}`}
+              >
+                <span className="company">{job.node.frontmatter.company}</span>
+                <span className="title">{job.node.frontmatter.title}</span>
+                <p>{job.node.frontmatter.range}</p>
+                <div dangerouslySetInnerHTML={{ __html: job.node.html }} />
+              </div>
+            </CSSTransition>
+          ))}
+        </StyledTabContent>
+      </div>
+    </StyledExperienceSection>
   )
 }
 

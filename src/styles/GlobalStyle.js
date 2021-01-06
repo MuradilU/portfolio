@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components"
+import TransitionStyles from "./TransitionStyles"
 
 const GlobalStyle = createGlobalStyle`
     :root {
@@ -9,6 +10,12 @@ const GlobalStyle = createGlobalStyle`
         --secondary-color: #45A29E;
         --lightgrey: #C5C6C7;
         --contrast: #FF8360;
+        --hover-color: #27323f;
+        
+        --nav-height: 100px;
+        --nav-scroll-height: 80px;
+
+        --tab-height: 80px;
     }
     [data-theme="light"] {
         --monochrome: #fffff2;
@@ -17,16 +24,52 @@ const GlobalStyle = createGlobalStyle`
         --primary-color: #f39c12;
         --secondary-color: #e67e22;
         --contrast: #0066ff;
+        --hover-color: #e6e6e6;
     }
     html {
         scroll-behavior: smooth;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: Roboto, sans-serif;
+        box-sizing: border-box;
     }
     body {
         margin: 0;
         background: var(--bg-color);
         color: var(--font-color);
     }
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    span,
+    p,
+    em, {
+        color: var(--font-color);
+    }
+    section {
+        padding: 100px 0;
+        margin: 0 auto;
+    }
+    .section-header {
+        text-align: center;
+
+        &:after {
+        content: "";
+        display: block;
+        margin: 0 auto;
+        width: 5%;
+        padding: 8px 0 0;
+        border-bottom: 2px solid var(--primary-color);
+        }
+    }
+
+    ${TransitionStyles};
 `
 
 export default GlobalStyle

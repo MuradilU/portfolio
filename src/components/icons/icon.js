@@ -1,14 +1,62 @@
 import React from "react"
-import { GmailIcon, LinkedInIcon, GithubIcon } from "@icons"
+import * as Icons from "@icons"
 
 const Icon = ({ icon }) => {
   switch (icon) {
     case "gmail":
-      return <GmailIcon />
+      return <Icons.GmailIcon />
     case "linkedin":
-      return <LinkedInIcon />
+      return <Icons.LinkedInIcon />
     case "github":
-      return <GithubIcon />
+      return <Icons.GithubIcon />
+    case "code":
+      return <Icons.CodeIcon />
+    case "film":
+      return <Icons.FilmIcon />
+    case "gear":
+      return <Icons.GearIcon />
+    case "joystick":
+      return <Icons.JoystickIcon />
+    case "keyboard":
+      return <Icons.KeyboardIcon />
+    case "laugh":
+      return <Icons.LaughIcon />
+    case "mouse":
+      return <Icons.MouseIcon />
+    case "watch":
+      return <Icons.WatchIcon />
+    case "pizza":
+      return <Icons.PizzaIcon />
+    case "hardware":
+      return <Icons.HardwareIcon />
+    case "icecream":
+      return <Icons.IcecreamIcon />
+    case "headset":
+      return <Icons.HeadsetIcon />
+    case "school":
+      return <Icons.SchoolIcon />
+    case "terminal":
+      return <Icons.TerminalIcon />
+    case "restaurant":
+      return <Icons.RestaurantIcon />
+    case "leaf":
+      return <Icons.LeafIcon />
+    case "glasses":
+      return <Icons.GlassesIcon />
+    case "earth":
+      return <Icons.EarthIcon />
+    case "desktop":
+      return <Icons.DesktopIcon />
+    case "snow":
+      return <Icons.SnowIcon />
+    case "barbell":
+      return <Icons.BarbellIcon />
+    case "cafe":
+      return <Icons.CafeIcon />
+    case "airplane":
+      return <Icons.AirplaneIcon />
+    case "music":
+      return <Icons.MusicIcon />
     default:
       return <svg></svg>
   }

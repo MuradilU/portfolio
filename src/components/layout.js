@@ -1,14 +1,15 @@
 import React from "react"
 import { GlobalStyle } from "@styles"
-import { Nav, Side } from "@components"
+import { Nav, Side, Background } from "@components"
 
 const Layout = ({ children }) => {
   return (
     <React.Fragment>
       <GlobalStyle />
       <Nav />
+      <Background />
       <Side />
-      {children}
+      <div>{children}</div>
     </React.Fragment>
   )
 }
