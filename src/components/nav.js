@@ -39,7 +39,61 @@ const StyledHeader = styled.header`
 const StyledNav = styled.nav`
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
+`
+
+const StyledMenu = styled.div`
+  .nav-toggle {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+
+  @media screen and (max-width: 700px) {
+    .nav-toggle:checked ~ .mobile-menu {
+      max-height: 100px;
+      max-width: 100%;
+    }
+
+    & {
+      display: flex;
+      position: relative;
+
+      .nav-icon {
+        cursor: pointer;
+
+        &:hover {
+          .bar1,
+          .bar2,
+          .bar3 {
+            background-color: var(--primary-color);
+          }
+        }
+
+        .bar1,
+        .bar2,
+        .bar3 {
+          width: 30px;
+          height: 4px;
+          background-color: var(--font-color);
+          margin: 6px 0;
+          transition: 0.4s;
+        }
+      }
+      .nav-toggle:checked + .nav-icon {
+        .bar1 {
+          transform: rotate(-45deg) translate(-8px, 6px);
+        }
+        .bar2 {
+          opacity: 0;
+        }
+        .bar3 {
+          transform: rotate(45deg) translate(-7px, -7px);
+        }
+      }
+    }
+  }
 `
 
 const StyledLinks = styled.ul`
@@ -62,6 +116,14 @@ const StyledLinks = styled.ul`
       &:hover {
         color: var(--primary-color);
       }
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    & {
+      max-height: 0;
+      max-width: 0;
+      overflow: hidden;
     }
   }
 `
@@ -124,6 +186,49 @@ const StyledThemeToggle = styled.div`
   }
 `
 
+const StyledResponsiveLinks = styled.ul`
+  position: absolute;
+  list-style: none;
+  padding: 10px 20px;
+  top: 20px;
+  background-color: var(--bg-color);
+  box-shadow: var(--box-shadow);
+  border-radius: 2px;
+  display: hidden;
+  opacity: 0;
+  pointer-events: none;
+
+  li {
+    margin: 0 10px;
+    padding: 10px 0;
+
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      color: var(--font-color);
+      transition: color 200ms ease-in;
+
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    & {
+      pointer-events: all;
+      transition: all 300ms ease-in-out;
+    }
+    input:checked ~ & {
+      opacity: 1;
+      transform: translateY(10px);
+    }
+  }
+`
+
 let scrollPosition
 
 const Nav = () => {
@@ -179,6 +284,26 @@ const Nav = () => {
   return (
     <StyledHeader atTop={scrollState.atTop} showNav={scrollState.show}>
       <StyledNav>
+        <StyledMenu>
+          <input
+            type="checkbox"
+            className="nav-toggle"
+            name="nav-toggle"
+            id="nav-toggle"
+          />
+          <label htmlFor="nav-toggle" className="nav-icon">
+            <div className="bar1"></div>
+            <div className="bar2"></div>
+            <div className="bar3"></div>
+          </label>
+          <StyledResponsiveLinks>
+            {nav.map(({ name, url }, index) => (
+              <li key={index} style={{ transitionDelay: `${index * 100}ms` }}>
+                <Link to={url}>{name}</Link>
+              </li>
+            ))}
+          </StyledResponsiveLinks>
+        </StyledMenu>
         <StyledLinks>
           <TransitionGroup component={null}>
             {isMounted &&
