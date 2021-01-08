@@ -9,7 +9,7 @@ const StyledLeftSide = styled.div`
   position: fixed;
   top: 0;
   bottom: 0;
-  left: 40px;
+  left: 30px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -62,11 +62,13 @@ const IconLink = styled.a`
   svg {
     width: 24px;
     height: 24px;
-    fill: var(--font-color);
-    transition: fill 200ms ease-in;
+    // fill: var(--font-color);
+    stroke: var(--font-color);
+    transition: all 200ms ease-in;
 
     &:hover {
-      fill: var(--primary-color);
+      // fill: var(--primary-color);
+      stroke: var(--primary-color);
     }
   }
 `

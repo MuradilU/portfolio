@@ -3,12 +3,14 @@ import * as Icons from "@icons"
 
 const Icon = ({ icon }) => {
   switch (icon) {
-    case "gmail":
-      return <Icons.GmailIcon />
+    case "mail":
+      return <Icons.MailIcon />
     case "linkedin":
       return <Icons.LinkedInIcon />
     case "github":
       return <Icons.GithubIcon />
+    case "external-link":
+      return <Icons.ExternalLinkIcon />
     case "code":
       return <Icons.CodeIcon />
     case "film":
@@ -57,6 +59,10 @@ const Icon = ({ icon }) => {
       return <Icons.AirplaneIcon />
     case "music":
       return <Icons.MusicIcon />
+    case "eye":
+      return <Icons.EyeIcon />
+    case "barchart":
+      return <Icons.BarchartIcon />
     default:
       return <svg></svg>
   }

@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { srConfig } from "@config"
 
 const StyledExperienceSection = styled.section`
-  max-width: 800px;
+  max-width: 900px;
 
   .content {
     display: grid;

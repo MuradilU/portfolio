@@ -11,6 +11,11 @@ const GlobalStyle = createGlobalStyle`
         --lightgrey: #C5C6C7;
         --contrast: #FF8360;
         --hover-color: #27323f;
+        --card-color: #364659;
+
+        --box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.7);
+
+        --linear-gradient: linear-gradient(135deg, #43c6ac, #191654); 
         
         --nav-height: 100px;
         --nav-scroll-height: 80px;
@@ -25,6 +30,11 @@ const GlobalStyle = createGlobalStyle`
         --secondary-color: #e67e22;
         --contrast: #0066ff;
         --hover-color: #e6e6e6;
+        --card-color: #FFFFFF;
+        
+        --box-shadow: 0px 10px 30px -10px rgba(0, 0, 0, 0.7);
+
+        --linear-gradient: linear-gradient(135deg, #f46b45, #eea849);
     }
     html {
         scroll-behavior: smooth;

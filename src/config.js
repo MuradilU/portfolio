@@ -5,7 +5,7 @@ module.exports = {
       url: "https://github.com/MuradilU",
     },
     {
-      name: "gmail",
+      name: "mail",
       url: "mailto:udun2000@gmail.com",
     },
     {
