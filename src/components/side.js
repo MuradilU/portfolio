@@ -26,6 +26,10 @@ const StyledLeftSide = styled.div`
       padding: 15px 10px;
     }
   }
+
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
 `
 
 const IconList = styled.ul`

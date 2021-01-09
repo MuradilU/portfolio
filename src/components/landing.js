@@ -14,6 +14,7 @@ const StyledLandingSection = styled.section`
 
   h1 {
     text-transform: uppercase;
+    text-align: center;
     margin: 30px 0 50px 0;
     font-size: clamp(40px, 8vw, 80px);
     color: var(--font-color);
@@ -32,6 +33,27 @@ const StyledLandingSection = styled.section`
       margin: 0 20px;
       display: inline-block;
       background-color: var(--font-color);
+      transition: width 300ms ease-in-out;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    h1 {
+      &:before,
+      &:after {
+        width: 40px;
+      }
+    }
+  }
+  @media screen and (max-width: 1100px) {
+    h1 {
+      &:before,
+      &:after {
+        height: 0;
+        width: 0;
+        margin: 0;
+        background-color: none;
+      }
     }
   }
 `
@@ -71,7 +93,7 @@ const Landing = () => {
   const intro = <StyledIntro>Hi, I'm</StyledIntro>
   const fullName = (
     <h1>
-      {first}&nbsp;
+      {first + " "}
       <em>{last}</em>
     </h1>
   )

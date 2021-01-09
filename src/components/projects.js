@@ -133,6 +133,12 @@ const StyledCard = styled.div`
       }
     }
   }
+
+  @media screen and (max-width: 500px) {
+    .card-content {
+      padding: 40px 25px 25px;
+    }
+  }
 `
 
 const CardTitle = styled.h2``
@@ -152,12 +158,10 @@ const IconLink = styled.a`
   svg {
     width: 24px;
     height: 24px;
-    // fill: var(--font-color);
     stroke: var(--font-color);
     transition: all 200ms ease-in;
 
     &:hover {
-      // fill: var(--primary-color);
       stroke: var(--primary-color);
     }
   }
@@ -191,18 +195,27 @@ const Projects = () => {
 
   const projects = data.allMarkdownRemark.edges
 
-  const revealContainer = React.useRef(null)
+  const revealHeader = React.useRef(null)
+  const revealProjects = React.useRef([])
 
   React.useEffect(() => {
-    ScrollReveal().reveal(revealContainer.current, srConfig)
+    ScrollReveal().reveal(revealHeader.current, srConfig)
+    revealProjects.current.forEach((project, index) =>
+      ScrollReveal().reveal(project, srConfig)
+    )
   }, [])
 
   return (
-    <StyledProjectSection id="projects" ref={revealContainer}>
-      <h2 className="section-header">Projects</h2>
+    <StyledProjectSection id="projects">
+      <h2 className="section-header" ref={revealHeader}>
+        Projects
+      </h2>
       <div className="content">
         {projects.map((project, index) => (
-          <StyledCard key={index}>
+          <StyledCard
+            key={index}
+            ref={e => (revealProjects.current[index] = e)}
+          >
             <div className="card-content">
               <header>
                 <div className="title-container">

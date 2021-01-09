@@ -34,6 +34,10 @@ const StyledHeader = styled.header`
       transform: translateY(calc(var(--nav-height) * -1));
       box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
     `};
+
+  @media screen and (max-width: 750px) {
+    padding: 0 40px;
+  }
 `
 
 const StyledNav = styled.nav`
@@ -284,26 +288,37 @@ const Nav = () => {
   return (
     <StyledHeader atTop={scrollState.atTop} showNav={scrollState.show}>
       <StyledNav>
-        <StyledMenu>
-          <input
-            type="checkbox"
-            className="nav-toggle"
-            name="nav-toggle"
-            id="nav-toggle"
-          />
-          <label htmlFor="nav-toggle" className="nav-icon">
-            <div className="bar1"></div>
-            <div className="bar2"></div>
-            <div className="bar3"></div>
-          </label>
-          <StyledResponsiveLinks>
-            {nav.map(({ name, url }, index) => (
-              <li key={index} style={{ transitionDelay: `${index * 100}ms` }}>
-                <Link to={url}>{name}</Link>
-              </li>
-            ))}
-          </StyledResponsiveLinks>
-        </StyledMenu>
+        <TransitionGroup component={null}>
+          {isMounted && (
+            <CSSTransition classNames="fade-in-down" timeout={2000}>
+              <StyledMenu
+                style={{ transitionDelay: `${nav.length * 100 - 100}ms` }}
+              >
+                <input
+                  type="checkbox"
+                  className="nav-toggle"
+                  name="nav-toggle"
+                  id="nav-toggle"
+                />
+                <label htmlFor="nav-toggle" className="nav-icon">
+                  <div className="bar1"></div>
+                  <div className="bar2"></div>
+                  <div className="bar3"></div>
+                </label>
+                <StyledResponsiveLinks>
+                  {nav.map(({ name, url }, index) => (
+                    <li
+                      key={index}
+                      style={{ transitionDelay: `${index * 100}ms` }}
+                    >
+                      <Link to={url}>{name}</Link>
+                    </li>
+                  ))}
+                </StyledResponsiveLinks>
+              </StyledMenu>
+            </CSSTransition>
+          )}
+        </TransitionGroup>
         <StyledLinks>
           <TransitionGroup component={null}>
             {isMounted &&

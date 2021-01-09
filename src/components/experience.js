@@ -14,6 +14,12 @@ const StyledExperienceSection = styled.section`
     column-gap: 30px;
     margin-top: 50px;
   }
+
+  @media screen and (max-width: 850px) {
+    .content {
+      display: block;
+    }
+  }
 `
 
 const StyledTabList = styled.ul`
@@ -33,6 +39,21 @@ const StyledTabList = styled.ul`
     transform: translateY(
       calc(${props => props.currentTab} * var(--tab-height))
     );
+  }
+
+  @media screen and (max-width: 850px) {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+
+    .marker {
+      bottom: 0;
+      left: 0;
+      top: unset;
+      height: 3px;
+      width: ${props => (1 / props.totalTabs) * 100}%;
+      transform: translateX(calc(${props => props.currentTab} * 100%));
+    }
   }
 `
 
@@ -64,6 +85,17 @@ const StyledTabListItem = styled.li`
       }
     }
   }
+
+  @media screen and (max-width: 850px) {
+    flex-grow: 1;
+
+    button {
+      width: 100%;
+      height: 50px;
+      border-right: none;
+      border-bottom: 2px solid var(--lightgrey);
+    }
+  }
 `
 
 const StyledTabContent = styled.div`
@@ -83,6 +115,14 @@ const StyledTabContent = styled.div`
   p {
     font-size: 15px;
     color: darkgrey;
+  }
+
+  li {
+    line-height: 1.3em;
+
+    &:not(:last-of-type) {
+      padding-bottom: 10px;
+    }
   }
 `
 
@@ -124,7 +164,7 @@ const Experience = () => {
     <StyledExperienceSection id="experience" ref={revealContainer}>
       <h2 className="section-header">Work Experience</h2>
       <div className="content">
-        <StyledTabList currentTab={currentTabId}>
+        <StyledTabList currentTab={currentTabId} totalTabs={jobs.length}>
           {jobs.map((job, index) => (
             <StyledTabListItem
               key={index}

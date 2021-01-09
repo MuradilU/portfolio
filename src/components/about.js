@@ -16,7 +16,7 @@ const StyledAboutSection = styled.section`
 
     .img-wrapper {
       display: block;
-      width: 300px;
+      width: 350px;
       max-width: 350px;
 
       .avatar {
@@ -28,6 +28,30 @@ const StyledAboutSection = styled.section`
         &:hover {
           background-color: var(--primary-color);
         }
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    .content {
+      display: block;
+
+      .img-wrapper {
+        margin: 0 auto;
+      }
+    }
+  }
+  @media (max-width: 650px) {
+    .content {
+      .img-wrapper {
+        width: 275px;
+      }
+    }
+  }
+  @media (max-width: 400px) {
+    .content {
+      .img-wrapper {
+        width: 200px;
       }
     }
   }

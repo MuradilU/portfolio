@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
         --nav-height: 100px;
         --nav-scroll-height: 80px;
 
-        --tab-height: 80px;
+        --tab-height: 100px;
     }
     [data-theme="light"] {
         --monochrome: #fffff2;
@@ -76,6 +76,12 @@ const GlobalStyle = createGlobalStyle`
         width: 5%;
         padding: 8px 0 0;
         border-bottom: 2px solid var(--primary-color);
+        }
+    }
+
+    @media screen and (max-width: 750px) {
+        section {
+            padding: 50px 0;
         }
     }
 

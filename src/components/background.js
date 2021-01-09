@@ -32,6 +32,18 @@ const StyledBackground = styled.div`
     width: inherit;
     height: inherit;
     transition-delay: 1300ms;
+    transform: translateX(-15px);
+  }
+
+  @media screen and (max-width: 800px) {
+    padding: 6em 2em;
+
+    .glasses,
+    .terminal,
+    .keyboard,
+    .headset {
+      display: none;
+    }
   }
 `
 
@@ -56,6 +68,13 @@ const StyledIconContainer = styled.div`
       color: var(--font-color);
     }
   }
+
+  @media screen and (max-width: 700px) {
+    svg {
+      width: calc(${props => props.size} * 0.9);
+      height: calc(${props => props.size} * 0.9);
+    }
+  }
 `
 
 const Background = () => {
@@ -74,6 +93,7 @@ const Background = () => {
               {icons.map((icon, index) => (
                 <StyledIconContainer
                   key={index}
+                  className={icon.name}
                   margin={`${20 - index * 1}em`}
                   start={`${0 + 60 * index}deg`}
                   end={`${360 + 60 * index}deg`}
