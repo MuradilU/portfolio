@@ -8,6 +8,7 @@ module.exports = {
     twitterUsername: "@MuradilUdun",
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
