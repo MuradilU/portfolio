@@ -2,9 +2,10 @@ module.exports = {
   siteMetadata: {
     title: "Muradil Udun",
     description:
-      "Muradil Udun is a Computer Engineering student at the University of Waterloo with a passion for softare and hardware.",
+      "Muradil Udun is a Computer Engineering student at the University of Waterloo with an interest in building and designing software and hardware.",
     url: "https://muradil.com",
     image: "/landing.png",
+    twitterUsername: "@MuradilUdun",
   },
   plugins: [
     `gatsby-transformer-remark`,

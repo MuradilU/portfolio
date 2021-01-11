@@ -2,7 +2,6 @@ import React from "react"
 
 const HeadsetIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-    <title>Headset</title>
     <path
       d="M83 384c-13-33-35-93.37-35-128C48 141.12 149.33 48 256 48s208 93.12 208 208c0 34.63-23 97-35 128"
       fill="none"

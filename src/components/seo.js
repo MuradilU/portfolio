@@ -16,6 +16,7 @@ const SEO = ({ title, description, image }) => {
             defaultDescription: description
             siteUrl: url
             defaultImage: image
+            twitterUsername
           }
         }
       }
@@ -27,6 +28,7 @@ const SEO = ({ title, description, image }) => {
     defaultDescription,
     siteUrl,
     defaultImage,
+    twitterUsername,
   } = site.siteMetadata
 
   const seo = {
@@ -37,16 +39,27 @@ const SEO = ({ title, description, image }) => {
   }
 
   return (
-    <Helmet title={seo.title}>
+    <Helmet
+      title={title}
+      defaultTitle={seo.title}
+      titleTemplate={`%s | ${defaultTitle}`}
+    >
       <html lang="en" />
+
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
-      {seo.url && <meta property="og:url" content={seo.url} />}
-      {seo.title && <meta property="og:title" content={seo.title} />}
-      {seo.description && (
-        <meta property="og:description" content={seo.description} />
-      )}
-      {seo.image && <meta property="og:image" content={seo.image} />}
+
+      <meta property="og:title" content={seo.title} />
+      <meta property="og:description" content={seo.description} />
+      <meta property="og:image" content={seo.image} />
+      <meta property="og:url" content={seo.url} />
+      <meta property="og:type" content="website" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:creator" content={twitterUsername} />
+      <meta name="twitter:title" content={seo.title} />
+      <meta name="twitter:description" content={seo.description} />
+      <meta name="twitter:image" content={seo.image} />
     </Helmet>
   )
 }

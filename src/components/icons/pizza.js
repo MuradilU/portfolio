@@ -2,7 +2,6 @@ import React from "react"
 
 const PizzaIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-    <title>Pizza</title>
     <path
       d="M404.76 123.08C358.37 104.18 309.69 96 256 96s-106.1 9-148.9 26.68c-8.08 3.3-15.26 9-10.07 19.5C101.24 150.71 203 375 241.66 455a15.94 15.94 0 0028.72 0l144.05-312.22c3.19-6.9.9-15.4-9.67-19.7z"
       fill="none"

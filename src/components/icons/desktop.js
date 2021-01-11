@@ -2,7 +2,6 @@ import React from "react"
 
 const DesktopIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-    <title>Desktop</title>
     <rect
       x="32"
       y="64"
