@@ -108,11 +108,11 @@ const About = () => {
             <em>University of Waterloo</em>.
           </p>
           <p>
-            I'm a keen learner with an enthusiasm for both software and hardware
-            and am particularly interested in building websites, applications,
-            and embedded systems! Whether it's school, work, or personal
-            projects, my goal is to always learn as much as possible and meet
-            the highest standards.
+            I'm an avid learner and with an interest in both software and
+            hardware and enjoy building websites, applications, and embedded
+            systems projects. My objective is to always meet the highest
+            standards, learn new skills and technologies, and improve existing
+            ones.
           </p>
           <p>
             In my free time I like to relax by playing guitar, learning new

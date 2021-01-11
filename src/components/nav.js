@@ -223,10 +223,10 @@ const StyledResponsiveLinks = styled.ul`
 
   @media screen and (max-width: 700px) {
     & {
-      pointer-events: all;
       transition: all 300ms ease-in-out;
     }
     input:checked ~ & {
+      pointer-events: all;
       opacity: 1;
       transform: translateY(10px);
     }
