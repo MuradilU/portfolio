@@ -36,12 +36,47 @@ const StyledBackground = styled.div`
   }
 
   @media screen and (max-width: 800px) {
-    padding: 6em 2em;
+    padding: 6em 2em 3em;
 
     .glasses,
     .terminal,
     .keyboard,
+    .desktop,
+    .earth,
     .headset {
+      display: none;
+    }
+    .mouse {
+      top: 29%;
+    }
+    .cafe {
+      top: 73%;
+    }
+    .barbell {
+      top: 82%;
+    }
+    .code {
+      top: 22%;
+    }
+    .joystick {
+      top: 14%;
+      left: 66%;
+    }
+    .gear {
+      left: 58%;
+    }
+    .leaf {
+      left: 0%;
+    }
+  }
+
+  @media (max-width: 350px) {
+    .mouse,
+    .leaf,
+    .joystick,
+    .film,
+    .cafe,
+    .hardware {
       display: none;
     }
   }

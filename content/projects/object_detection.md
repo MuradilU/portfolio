@@ -6,4 +6,4 @@ github: "https://github.com/MuradilU/Laser-Object-Detector"
 icon: "hardware"
 ---
 
-Single page application capable of visualizing various sorting algorithms
+Motion detection device to track objects entering and leaving a finite space

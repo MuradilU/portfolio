@@ -1,6 +1,13 @@
 import React from "react"
 import styled from "styled-components"
-import { Layout, Landing, About, Experience, Projects } from "@components"
+import {
+  Layout,
+  Landing,
+  About,
+  Experience,
+  Projects,
+  Contact,
+} from "@components"
 
 const StyledMainContainer = styled.main`
   padding: 0 150px;
@@ -27,6 +34,7 @@ export default function Home({ location }) {
         <About />
         <Experience />
         <Projects />
+        <Contact />
       </StyledMainContainer>
     </Layout>
   )

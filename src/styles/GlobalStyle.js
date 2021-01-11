@@ -1,7 +1,10 @@
 import { createGlobalStyle } from "styled-components"
 import TransitionStyles from "./TransitionStyles"
+import Font from "./font"
 
 const GlobalStyle = createGlobalStyle`
+    ${Font}
+
     :root {
         --monochrome: #0B0C10;
         --bg-color: #1F2833;
@@ -21,6 +24,8 @@ const GlobalStyle = createGlobalStyle`
         --nav-scroll-height: 80px;
 
         --tab-height: 100px;
+
+        --font-family: 'Montserrat', sans-serif;
     }
     [data-theme="light"] {
         --monochrome: #fffff2;
@@ -38,18 +43,27 @@ const GlobalStyle = createGlobalStyle`
     }
     html {
         scroll-behavior: smooth;
-        font-family: Roboto, sans-serif;
+        font-family: var(--font-family);
         box-sizing: border-box;
     }
     body {
         margin: 0;
         background: var(--bg-color);
         color: var(--font-color);
+        font-family: var(--font-family);
     }
     *,
     *:before,
     *:after {
       box-sizing: inherit;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 600;
     }
     h1,
     h2,

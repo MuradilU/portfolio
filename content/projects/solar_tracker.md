@@ -5,4 +5,4 @@ tech: ["Arduino Uno"]
 icon: "hardware"
 ---
 
-Single page application capable of visualizing various sorting algorithms
+Single axis solar tracker built to optimize power yield of solar panels by tracking the sun's movement

@@ -76,7 +76,7 @@ const StyledButton = styled.button`
   em {
     position: absolute;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 600;
     font-style: normal;
     color: var(--font-color);
     top: 0;

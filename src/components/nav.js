@@ -112,7 +112,7 @@ const StyledLinks = styled.ul`
     a {
       text-transform: uppercase;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       letter-spacing: 0.5px;
       color: var(--font-color);
       transition: color 200ms ease-in;
@@ -209,7 +209,7 @@ const StyledResponsiveLinks = styled.ul`
     a {
       text-transform: uppercase;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       font-size: 16px;
       letter-spacing: 0.5px;
       color: var(--font-color);
@@ -247,12 +247,14 @@ const Nav = () => {
   scrollPosition = scrollState.scrollPosition
 
   const handleScroll = () => {
-    const newY = window.scrollY
-    setScrollState({
-      show: newY <= 100 || newY < scrollPosition,
-      scrollPosition: newY,
-      atTop: newY < 50,
-    })
+    if (typeof window !== `undefined`) {
+      const newY = window.scrollY
+      setScrollState({
+        show: newY <= 100 || newY < scrollPosition,
+        scrollPosition: newY,
+        atTop: newY < 50,
+      })
+    }
   }
 
   React.useEffect(() => {

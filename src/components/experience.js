@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import ScrollReveal from "scrollreveal"
 import { CSSTransition } from "react-transition-group"
 import { useStaticQuery, graphql } from "gatsby"
+import scrollreveal from "@utils/scrollreveal"
 import { srConfig } from "@config"
 
 const StyledExperienceSection = styled.section`
@@ -74,7 +74,7 @@ const StyledTabListItem = styled.li`
         ${props => (props.isCurrentTab ? "--primary-color" : "--font-color")}
       );
       font-size: 14px;
-      font-weight: bold;
+      font-weight: 600;
     }
 
     &:hover {
@@ -101,7 +101,7 @@ const StyledTabListItem = styled.li`
 const StyledTabContent = styled.div`
   .company {
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 600;
     padding-right: 10px;
     border-right: 2px solid var(--font-color);
   }
@@ -117,11 +117,22 @@ const StyledTabContent = styled.div`
     color: darkgrey;
   }
 
-  li {
-    line-height: 1.3em;
+  ul {
+    list-style: none;
+    position: relative;
 
-    &:not(:last-of-type) {
-      padding-bottom: 10px;
+    li {
+      &:before {
+        position: absolute;
+        content: "○";
+        left: 5px;
+        color: var(--primary-color);
+      }
+      line-height: 1.3em;
+
+      &:not(:last-of-type) {
+        padding-bottom: 10px;
+      }
     }
   }
 `
@@ -157,14 +168,18 @@ const Experience = () => {
   const revealContainer = React.useRef(null)
 
   React.useEffect(() => {
-    ScrollReveal().reveal(revealContainer.current, srConfig)
+    scrollreveal.reveal(revealContainer.current, srConfig)
   }, [])
 
   return (
     <StyledExperienceSection id="experience" ref={revealContainer}>
       <h2 className="section-header">Work Experience</h2>
       <div className="content">
-        <StyledTabList currentTab={currentTabId} totalTabs={jobs.length}>
+        <StyledTabList
+          role="tablist"
+          currentTab={currentTabId}
+          totalTabs={jobs.length}
+        >
           {jobs.map((job, index) => (
             <StyledTabListItem
               key={index}
@@ -177,7 +192,7 @@ const Experience = () => {
                 id={`tab-${index}`}
                 role="tab"
                 aria-selected={currentTabId === index}
-                aria-controls={`tab-content-${index}`}
+                aria-controls={`tabpanel-${index}`}
               >
                 <span>{job.node.frontmatter.company.split(" ")[0]}</span>
               </button>
@@ -195,10 +210,10 @@ const Experience = () => {
             >
               <div
                 hidden={currentTabId !== index}
-                id={`tab-content-${index}`}
-                role="tab-content"
+                id={`panel-${index}`}
+                role="tabpanel"
                 aria-hidden={currentTabId !== index}
-                aria-labelledby={`tab-content-${index}`}
+                aria-labelledby={`tab-${index}`}
               >
                 <span className="company">{job.node.frontmatter.company}</span>
                 <span className="title">{job.node.frontmatter.title}</span>

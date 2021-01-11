@@ -16,7 +16,7 @@ const StyledLandingSection = styled.section`
     text-transform: uppercase;
     text-align: center;
     margin: 30px 0 50px 0;
-    font-size: clamp(40px, 8vw, 80px);
+    font-size: clamp(50px, 8vw, 80px);
     color: var(--font-color);
 
     em {
@@ -37,7 +37,7 @@ const StyledLandingSection = styled.section`
     }
   }
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1300px) {
     h1 {
       &:before,
       &:after {
@@ -45,7 +45,7 @@ const StyledLandingSection = styled.section`
       }
     }
   }
-  @media screen and (max-width: 1100px) {
+  @media screen and (max-width: 1160px) {
     h1 {
       &:before,
       &:after {

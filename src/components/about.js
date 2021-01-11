@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import ScrollReveal from "scrollreveal"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import scrollreveal from "@utils/scrollreveal"
 import { srConfig } from "@config"
 
 const StyledAboutSection = styled.section`
@@ -28,6 +28,17 @@ const StyledAboutSection = styled.section`
         &:hover {
           background-color: var(--primary-color);
         }
+      }
+    }
+
+    p {
+      em {
+        font-style: normal;
+        font-weight: 600;
+        color: var(--secondary-color);
+      }
+      &:first-of-type {
+        font-size: 20px;
       }
     }
   }
@@ -76,7 +87,7 @@ const About = () => {
   const revealContainer = React.useRef(null)
 
   React.useEffect(() => {
-    ScrollReveal().reveal(revealContainer.current, srConfig)
+    scrollreveal.reveal(revealContainer.current, srConfig)
   }, [])
 
   return (
@@ -92,16 +103,20 @@ const About = () => {
         </div>
         <div>
           <p>
-            Hi! My name is Muradil Udun and I am currently a 3A Computer
-            Engineering student studying at the University of Waterloo.
+            Hello! I'm <em>Muradil</em>, a third year{" "}
+            <em>Computer Engineering</em> student at the{" "}
+            <em>University of Waterloo</em>.
           </p>
           <p>
-            I am a keen learner with an interest in Embedded Systems, Machine
-            Learning, and Web Development.
+            I'm an keen learner with an enthusiasm for both software and
+            hardware and am particularly interested in building websites,
+            applications, and embedded systems! Whether it's school, work, or
+            personal projects, my goal is to always learn as much as possible
+            and meet the highest standards.
           </p>
           <p>
-            I am currently looking for Computer Engineering internships for
-            Spring 2020. Please contact me if you're interested!
+            In my free time I like to relax by playing guitar, learning new
+            recipes, or playing video games such as League of Legends!
           </p>
         </div>
       </div>

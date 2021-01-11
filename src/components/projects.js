@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import { TransitionGroup, CSSTransition } from "react-transition-group"
-import ScrollReveal from "scrollreveal"
 import { useStaticQuery, graphql } from "gatsby"
 import { Icon } from "@icons"
+import scrollreveal from "@utils/scrollreveal"
 import { srConfig } from "@config"
 
 const StyledProjectSection = styled.section`
@@ -51,6 +51,7 @@ const StyledCard = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: flex-start;
     height: 100%;
     padding: 40px 30px 25px;
 
@@ -199,9 +200,9 @@ const Projects = () => {
   const revealProjects = React.useRef([])
 
   React.useEffect(() => {
-    ScrollReveal().reveal(revealHeader.current, srConfig)
+    scrollreveal.reveal(revealHeader.current, srConfig)
     revealProjects.current.forEach((project, index) =>
-      ScrollReveal().reveal(project, srConfig)
+      scrollreveal.reveal(project, srConfig)
     )
   }, [])
 
@@ -240,6 +241,8 @@ const Projects = () => {
                     href={project.node.frontmatter.github}
                     key={index}
                     target="_blank"
+                    rel="noopener"
+                    rel="noreferrer"
                   >
                     <Icon icon="github" />
                   </IconLink>
@@ -248,6 +251,8 @@ const Projects = () => {
                   <IconLink
                     href={project.node.frontmatter.link}
                     target="_blank"
+                    rel="noopener"
+                    rel="noreferrer"
                   >
                     <Icon icon="external-link" />
                   </IconLink>

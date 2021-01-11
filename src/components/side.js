@@ -32,36 +32,6 @@ const StyledLeftSide = styled.div`
   }
 `
 
-const IconList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-
-  li {
-    padding: 10px;
-
-    &:first-of-type {
-      margin-top: 40px;
-    }
-
-    &:last-of-type {
-      margin-bottom: 40px;
-    }
-  }
-
-  &:before,
-  &:after {
-    content: "";
-    display: block;
-    width: 1px;
-    height: 200px;
-    background-color: var(--primary-color);
-    margin: 0px auto;
-  }
-`
-
 const IconLink = styled.a`
   svg {
     width: 24px;
