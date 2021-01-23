@@ -14,7 +14,7 @@ const SEO = ({ title, description, image }) => {
           siteMetadata {
             defaultTitle: title
             defaultDescription: description
-            siteUrl: url
+            siteUrl: siteUrl
             defaultImage: image
             twitterUsername
           }

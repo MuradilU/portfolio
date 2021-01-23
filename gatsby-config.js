@@ -3,7 +3,7 @@ module.exports = {
     title: "Muradil Udun",
     description:
       "Muradil Udun is a Computer Engineering student at the University of Waterloo with an interest in building and designing software and hardware.",
-    url: "https://muradil.com",
+    siteUrl: "https://muradil.com",
     image: "/landing.png",
     twitterUsername: "@MuradilUdun",
   },
@@ -13,6 +13,8 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-robots-txt`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
