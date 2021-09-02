@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import scrollreveal from "@utils/scrollreveal"
 import { srConfig } from "@config"
 
@@ -76,9 +76,11 @@ const About = () => {
         relativePath: { eq: "avatar.png" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 500) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(
+            layout: CONSTRAINED
+            width: 500
+            formats: [AUTO, WEBP, AVIF]
+          )
         }
       }
     }
@@ -95,8 +97,8 @@ const About = () => {
       <h2 className="section-header">About Me</h2>
       <div className="content">
         <div className="img-wrapper">
-          <Img
-            fluid={data.avatar.childImageSharp.fluid}
+          <GatsbyImage
+            image={data.avatar.childImageSharp.gatsbyImageData}
             alt="Avatar"
             className="avatar"
           />
