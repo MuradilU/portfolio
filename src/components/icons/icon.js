@@ -65,6 +65,8 @@ const Icon = ({ icon }) => {
       return <Icons.BarchartIcon />
     case "sun":
       return <Icons.SunIcon />
+    case "door":
+      return <Icons.DoorIcon />
     default:
       return <svg></svg>
   }

@@ -71,6 +71,10 @@ const StyledCard = styled.div`
         stroke: var(--primary-color);
         color: var(--primary-color);
       }
+      
+      .no-stroke {
+        stroke: none;
+      }
     }
 
     .card-description {

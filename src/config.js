@@ -67,7 +67,7 @@ module.exports = {
     },
     {
       name: "keyboard",
-      size: "32px",
+      size: "28px",
       x: "79%",
       y: "5%",
     },
