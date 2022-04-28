@@ -107,7 +107,7 @@ const Contact = () => {
       <h2 className="section-header">Contact me</h2>
       <div className="content">
         <p>
-          I'm currently looking for internship oppurtunities for Winter 2022.
+          I'm currently looking for full-time opportunities for 2023.
           Please contact me if you're interested or if you just want to chat!
         </p>
         <a href="mailto:udun2000@gmail.com">

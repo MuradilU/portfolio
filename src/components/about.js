@@ -105,7 +105,7 @@ const About = () => {
         </div>
         <div>
           <p>
-            Hello! I'm <em>Muradil</em>, a third year{" "}
+            Hello! I'm <em>Muradil</em>, a fourth year{" "}
             <em>Computer Engineering</em> student at the{" "}
             <em>University of Waterloo</em>.
           </p>

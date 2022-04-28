@@ -42,7 +42,9 @@ const StyledTabList = styled.ul`
   }
 
   @media screen and (max-width: 850px) {
-    display: flex;
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
     justify-content: space-between;
     margin-bottom: 25px;
 

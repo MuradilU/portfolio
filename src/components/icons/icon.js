@@ -67,6 +67,10 @@ const Icon = ({ icon }) => {
       return <Icons.SunIcon />
     case "door":
       return <Icons.DoorIcon />
+    case "image":
+      return <Icons.ImageIcon />
+    case "flashlight":
+      return <Icons.FlashLightIcon />
     default:
       return <svg></svg>
   }
