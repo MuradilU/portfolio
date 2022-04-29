@@ -1,6 +1,6 @@
 ---
 date: "2022-01-10"
-company: "PlayStation - SIE"
+company: "Sony Interactive Entertainment - PlayStation"
 title: "Software Developer"
 range: "Jan - April 2022"
 location: "Waterloo, ON"
