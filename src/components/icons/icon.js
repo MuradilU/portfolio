@@ -71,6 +71,8 @@ const Icon = ({ icon }) => {
       return <Icons.ImageIcon />
     case "flashlight":
       return <Icons.FlashLightIcon />
+    case "braille":
+      return <Icons.BrailleIcon />
     default:
       return <svg></svg>
   }
