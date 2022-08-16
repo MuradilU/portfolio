@@ -54,11 +54,13 @@ const StyledCard = styled.div`
     align-items: flex-start;
     height: 100%;
     padding: 40px 30px 25px;
-
+    
     .title-container {
       display: grid;
       grid-template-columns: 4fr 1fr;
       column-gap: 20px;
+      height: 90px;
+      max-height: 90px;
 
       .card-title {
         margin-top: 0;

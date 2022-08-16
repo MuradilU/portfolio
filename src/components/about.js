@@ -110,15 +110,20 @@ const About = () => {
             <em>University of Waterloo</em>.
           </p>
           <p>
-            I'm an avid learner and with an interest in both software and
-            hardware and enjoy building websites, applications, and embedded
-            systems projects. My objective is to always meet the highest
+            I'm an avid learner and with an interest in solving complex problems
+            in the field of Software Engineering. I am also an experienced developer
+            in <em>JavaScript</em>, <em>Python</em>, and <em>C/C++</em> and always
+            looking to learn more!
+            My objective is to always meet the highest
             standards, learn new skills and technologies, and improve existing
             ones.
           </p>
           <p>
             In my free time I like to relax by playing guitar, learning new
-            recipes, or playing video games such as League of Legends!
+            recipes, or playing video games!
+          </p>
+          <p>
+            <b>Currently in search of <em>full-time</em> oppurtunities for 2023!</b>
           </p>
         </div>
       </div>
