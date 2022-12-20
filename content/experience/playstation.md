@@ -1,7 +1,7 @@
 ---
 date: "2022-01-10"
 company: "Sony Interactive Entertainment - PlayStation"
-title: "Software Engineer Intern"
+title: "Software Engineer Intern - Frontend"
 range: "Jan - April 2022"
 location: "Waterloo, ON"
 ---

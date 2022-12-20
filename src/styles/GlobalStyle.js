@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
         --nav-height: 100px;
         --nav-scroll-height: 80px;
 
-        --tab-height: 70px;
+        --tab-height: 110px;
 
         --font-family: 'Montserrat', sans-serif;
     }
