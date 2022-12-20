@@ -6,7 +6,7 @@ import scrollreveal from "@utils/scrollreveal"
 import { srConfig } from "@config"
 
 const StyledExperienceSection = styled.section`
-  max-width: 900px;
+  max-width: 1100px;
 
   .content {
     display: grid;
@@ -104,14 +104,18 @@ const StyledTabContent = styled.div`
   .company {
     font-size: 20px;
     font-weight: 600;
-    padding-right: 10px;
-    border-right: 2px solid var(--font-color);
+    padding-right: 20px;
+    // border-right: 2px solid var(--font-color);
+  }
+
+  .positions {
+    padding-top: 10px;
   }
 
   .title {
     font-size: 18px;
     color: var(--primary-color);
-    padding-left: 10px;
+    // padding-left: 10px;
   }
 
   p {
@@ -120,6 +124,7 @@ const StyledTabContent = styled.div`
   }
 
   ul {
+    font-size: 14px;
     list-style: none;
     position: relative;
 
@@ -163,9 +168,23 @@ const Experience = () => {
     `
   )
 
+  const mergeDuplicates = (arr) => {
+    const map = new Map()
+    arr.forEach((e) => {
+      const key = e.node.frontmatter.company
+      if (map.has(key)) {
+        map.set(key, [...map.get(key), e])
+      } else {
+        map.set(key, [e])
+      }
+    })
+    return Array.from(map.values())
+  }
+
+
   const [currentTabId, setCurrentTabId] = React.useState(0)
 
-  const jobs = data.allMarkdownRemark.edges
+  const companies = mergeDuplicates(data.allMarkdownRemark.edges)
 
   const revealContainer = React.useRef(null)
 
@@ -180,9 +199,9 @@ const Experience = () => {
         <StyledTabList
           role="tablist"
           currentTab={currentTabId}
-          totalTabs={jobs.length}
+          totalTabs={companies.length}
         >
-          {jobs.map((job, index) => (
+          {companies.map((company, index) => (
             <StyledTabListItem
               key={index}
               isCurrentTab={currentTabId === index}
@@ -196,14 +215,14 @@ const Experience = () => {
                 aria-selected={currentTabId === index}
                 aria-controls={`tabpanel-${index}`}
               >
-                <span>{job.node.frontmatter.company.split(" ")[0]}</span>
+                <span>{company[0].node.frontmatter.company.split(" ")[0]}</span>
               </button>
             </StyledTabListItem>
           ))}
           <li className="marker"></li>
         </StyledTabList>
         <StyledTabContent>
-          {jobs.map((job, index) => (
+          {companies.map((company, index) => (
             <CSSTransition
               key={index}
               in={currentTabId === index}
@@ -217,10 +236,17 @@ const Experience = () => {
                 aria-hidden={currentTabId !== index}
                 aria-labelledby={`tab-${index}`}
               >
-                <span className="company">{job.node.frontmatter.company}</span>
-                <span className="title">{job.node.frontmatter.title}</span>
-                <p>{job.node.frontmatter.range}</p>
-                <div dangerouslySetInnerHTML={{ __html: job.node.html }} />
+                <span className="company">{company[0].node.frontmatter.company}</span>
+                {company.map((position, posIndex) => (
+                  <div
+                  className="positions"
+                  key={`${index}-${posIndex}`}
+                  >
+                    <span className="title">{position.node.frontmatter.title}</span>
+                    <p>{position.node.frontmatter.range}</p>
+                    <div dangerouslySetInnerHTML={{ __html: position.node.html }} />
+                  </div>
+                ))}
               </div>
             </CSSTransition>
           ))}
