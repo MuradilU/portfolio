@@ -6,12 +6,10 @@ import scrollreveal from "@utils/scrollreveal"
 import { srConfig } from "@config"
 
 const StyledExperienceSection = styled.section`
-  max-width: 1100px;
+  max-width: 900px;
 
   .content {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    column-gap: 30px;
+    display: block;
     margin-top: 50px;
   }
 
@@ -27,48 +25,39 @@ const StyledTabList = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  justify-content: space-between;
+  margin-bottom: 25px;
 
   .marker {
     position: absolute;
-    top: 0;
+    bottom: 0;
     right: 0;
-    width: 3px;
-    height: var(--tab-height);
+    left: 0;
+    top: unset;
+    height: 3px;
+    width: ${props => (1 / props.totalTabs) * 100}%;
+    transform: translateX(calc(${props => props.currentTab} * 100%));
     background-color: var(--secondary-color);
     transition: all 300ms ease-in-out;
-    transform: translateY(
-      calc(${props => props.currentTab} * var(--tab-height))
-    );
-  }
-
-  @media screen and (max-width: 850px) {
-    display: grid;
-    grid-auto-columns: minmax(0, 1fr);
-    grid-auto-flow: column;
-    justify-content: space-between;
-    margin-bottom: 25px;
-
-    .marker {
-      bottom: 0;
-      left: 0;
-      top: unset;
-      height: 3px;
-      width: ${props => (1 / props.totalTabs) * 100}%;
-      transform: translateX(calc(${props => props.currentTab} * 100%));
-    }
   }
 `
 
 const StyledTabListItem = styled.li`
+  flex-grow: 1;
+
   button {
     cursor: pointer;
     outline: none;
     background-color: transparent;
-    width: 100%;
-    height: var(--tab-height);
     text-align: center;
+    width: 100%;
+    height: 50px;
     border: none;
-    border-right: 2px solid var(--lightgrey);
+    border-right: none;
+    border-bottom: 2px solid var(--lightgrey);
     transition: all 300ms ease-in-out;
 
     span {
@@ -85,17 +74,6 @@ const StyledTabListItem = styled.li`
       span {
         color: var(--primary-color);
       }
-    }
-  }
-
-  @media screen and (max-width: 850px) {
-    flex-grow: 1;
-
-    button {
-      width: 100%;
-      height: 50px;
-      border-right: none;
-      border-bottom: 2px solid var(--lightgrey);
     }
   }
 `
