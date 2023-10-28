@@ -105,15 +105,15 @@ const About = () => {
         </div>
         <div>
           <p>
-            Hello! I'm <em>Muradil</em>, a fourth year{" "}
-            <em>Computer Engineering</em> student at the{" "}
+            Hello! I'm <em>Muradil</em>, a recent graduate in{" "}
+            <em>Computer Engineering</em> from the{" "}
             <em>University of Waterloo</em>.
           </p>
           <p>
             I'm an avid learner and with an interest in solving complex problems
             in the field of Software Engineering. I am also an experienced developer
-            in <em>JavaScript</em>, <em>Python</em>, and <em>C/C++</em> and always
-            looking to learn more!
+            in <em>Java</em> with a focus in building highly scalable and distributed
+            backend services.
             My objective is to always meet the highest
             standards, learn new skills and technologies, and improve existing
             ones.
@@ -123,7 +123,7 @@ const About = () => {
             recipes, or playing video games!
           </p>
           <p>
-            <b>Currently in search of <em>full-time</em> oppurtunities for 2023!</b>
+            <b>Currently working as a fulltime Software Engineer at <em>PlayStation</em>!</b>
           </p>
         </div>
       </div>
