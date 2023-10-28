@@ -190,7 +190,6 @@ const Projects = () => {
                 date
                 tech
                 github
-                link
                 icon
               }
             }
